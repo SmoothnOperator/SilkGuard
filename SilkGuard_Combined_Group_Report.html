@@ -6,30 +6,30 @@
   <style>
     @page {
       size: A4;
-      margin: 20mm 18mm 20mm 18mm;
+      margin: 18mm 16mm 18mm 16mm;
     }
     * { box-sizing: border-box; }
     body {
       font-family: 'Times New Roman', Times, serif;
-      font-size: 11pt;
-      line-height: 1.5;
+      font-size: 10.5pt;
+      line-height: 1.48;
       color: #000000;
       background: #f8fafc;
       margin: 0;
-      padding: 24px;
+      padding: 20px;
     }
     .report-page {
       max-width: 820px;
-      margin: 0 auto 36px auto;
+      margin: 0 auto 30px auto;
       background: #ffffff;
-      padding: 36px 42px;
+      padding: 34px 40px;
       box-shadow: 0 4px 18px rgba(0,0,0,0.08);
       border: 1px solid #d1d5db;
     }
     .cover-border {
       border: 2px solid #000000;
       padding: 32px 28px;
-      min-height: 980px;
+      min-height: 960px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -78,25 +78,25 @@
       font-weight: normal;
       color: #000000;
       line-height: 1.4;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
     .submitted-label {
       font-size: 11pt;
       font-weight: normal;
-      margin: 18px 0 10px 0;
+      margin: 16px 0 10px 0;
       color: #000000;
     }
-    /* Tables: Transparent background, black text, clean borders */
+    /* Standard Transparent Academic Table */
     table.academic-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 14px 0;
-      font-size: 10pt;
+      margin: 12px 0;
+      font-size: 9.8pt;
       background: transparent;
     }
     table.academic-table th, table.academic-table td {
       border: 1px solid #000000;
-      padding: 7px 10px;
+      padding: 6px 8px;
       text-align: left;
       color: #000000;
       background: transparent;
@@ -107,26 +107,26 @@
       color: #000000;
     }
     h2.report-heading {
-      font-size: 14pt;
+      font-size: 13pt;
       font-weight: bold;
       color: #000000;
-      margin: 22px 0 10px 0;
+      margin: 18px 0 8px 0;
       border-bottom: 1px solid #000000;
       padding-bottom: 3px;
     }
     p {
       text-align: justify;
-      margin: 0 0 10px 0;
+      margin: 0 0 9px 0;
       text-indent: 1.5em;
       color: #000000;
     }
     ul {
-      margin: 6px 0 12px 0;
-      padding-left: 24px;
+      margin: 5px 0 10px 0;
+      padding-left: 22px;
       color: #000000;
     }
     li {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       text-align: justify;
       color: #000000;
     }
@@ -134,18 +134,18 @@
       background: #f8fafc;
       border: 1px solid #cbd5e1;
       border-radius: 4px;
-      padding: 12px;
-      margin: 16px 0;
+      padding: 10px;
+      margin: 14px 0;
       text-align: center;
     }
     .citation-list {
-      font-size: 9.5pt;
+      font-size: 9.2pt;
       padding-left: 24px;
       text-indent: -24px;
       color: #000000;
     }
     .citation-item {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       text-align: justify;
       color: #000000;
     }
@@ -189,7 +189,7 @@
 <body>
 
   <div class="print-bar">
-    <div><strong>SilkGuard Experiential Learning Report</strong> (Times New Roman • JAIN Logo • 6 Members • Pure Black Fonts)</div>
+    <div><strong>SilkGuard Experiential Learning Report</strong> (Times New Roman • JAIN Logo • 6 Members • Organized Academic Layout)</div>
     <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
   </div>
 
@@ -211,7 +211,7 @@
         <div class="main-proj-subtitle">From Foliar Biochemical Profiling to Inverted Residuals, Field Covariate Shifts, and Sericultural Risk Assessment</div>
       </div>
 
-      <!-- Center: 6 Members Submission Table (Transparent Background) -->
+      <!-- Center: 6 Members Submission Table -->
       <div>
         <div class="submitted-label">Submitted by</div>
         <table class="academic-table" style="margin: 0 auto; width: 95%;">
@@ -277,13 +277,13 @@
 
   <!-- PAGE 2: REPORT BODY - PART 1 -->
   <div class="report-page">
-    <div style="text-align: center; margin-bottom: 16px;">
-      <h1 style="font-size: 15pt; text-transform: uppercase; margin: 0 0 6px 0; color: #000000;">SilkGuard: Intelligent Leaf Scanning &amp; Sericulture Protection Platform</h1>
-      <div style="font-size: 10pt; color: #000000;">Experiential Learning Synthesis Across Agricultural Biotechnology and Deep Edge Architectures</div>
+    <div style="text-align: center; margin-bottom: 14px;">
+      <h1 style="font-size: 14pt; text-transform: uppercase; margin: 0 0 4px 0; color: #000000;">SilkGuard: Intelligent Leaf Scanning &amp; Sericulture Protection Platform</h1>
+      <div style="font-size: 9.5pt; color: #000000;">Experiential Learning Synthesis Across Agricultural Biotechnology and Deep Edge Architectures</div>
     </div>
 
     <p>
-      Silkworms (Bombyx mori) are strict monophagous insects possessing an evolutionary metabolic dependence on the fresh foliage of the white mulberry tree (Morus alba L.). In sericultural engineering, the mulberry leaf acts as the irreplaceable biological hardware chassis that powers larval growth, silk gland hypertrophy, and fibroin protein polymerization. Our interdisciplinary team engineered <strong>SilkGuard</strong>, an edge-native artificial intelligence platform and field diagnostic laboratory. We approached foliar disease diagnosis not as a detached image classification task, but through an integrated biological and computer systems engineering paradigm: mapping foliar moisture and protein deterioration to digestive physiological collapse (flacherie) in Bombyx mori, while deploying optimized inverted-residual convolutional neural networks (MobileNetV2) capable of real-time offline inference on edge hardware in rural Karnataka.
+      Silkworms (Bombyx mori) are strict monophagous insects possessing an evolutionary metabolic dependence on the fresh foliage of the white mulberry tree (Morus alba L.). In sericultural engineering, the mulberry leaf acts as the irreplaceable biological hardware chassis that powers larval growth, silk gland hypertrophy, and fibroin protein polymerization. Our interdisciplinary team engineered <strong>SilkGuard</strong>, an edge-native artificial intelligence platform and field diagnostic laboratory. We approached foliar disease diagnosis through an integrated biological and computer systems engineering paradigm: mapping foliar moisture and protein deterioration directly to digestive physiological collapse (flacherie) in Bombyx mori, while deploying optimized inverted-residual convolutional neural networks (MobileNetV2) capable of real-time offline inference on edge mobile processors in rural Karnataka.
     </p>
 
     <h2 class="report-heading">1. The Biological Chassis: Foliar Hardware and Pathological Malware</h2>
@@ -353,42 +353,43 @@
 
   </div>
 
-  <!-- PAGE 3: REPORT BODY - PART 2 (GRAPH & THIRD TABLE KEPT AS-IS WITH ORIGINAL COLORS) -->
+  <!-- PAGE 3: REPORT BODY - PART 2 -->
   <div class="report-page">
-    <h2 class="report-heading" style="margin-top:0;">3. Dataset Pipeline Engineering &amp; Covariate Domain Shifts</h2>
+    <h2 class="report-heading" style="margin-top:0;">3. Dataset Pipeline Engineering &amp; In-Situ Telemetry</h2>
     <p>
-      An empirical model is only as robust as its underlying training distribution. We collected and calibrated a 24-specimen master photographic dataset spanning controlled laboratory conditions (D65 illuminant, 6500K) and in-situ farm environments in the Kanakapura and Harohalli sericulture clusters (12.5482&deg; N, 77.4215&deg; E). The dataset was balanced across four classes (Healthy, Powdery Mildew, Leaf Rust, Leaf Spot) and augmented using random horizontal flips, &plusmn;15&deg; rotations, and brightness jitter (&plusmn;20%) to emulate variable outdoor lighting.
+      An empirical model is only as robust as its underlying training distribution. We collected and calibrated a 24-specimen master photographic dataset spanning controlled laboratory conditions (D65 illuminant, 6500K) and in-situ farm environments in the Kanakapura and Harohalli sericulture clusters (12.5482&deg; N, 77.4215&deg; E). The dataset was balanced across four classes (Healthy, Powdery Mildew, Leaf Rust, Leaf Spot) and augmented using random horizontal flips, &plusmn;15&deg; rotations, and brightness jitter (&plusmn;20%) to emulate variable outdoor solar conditions.
     </p>
 
-    <!-- Visual Convergence Curve (SVG Embedded Chart - KEPT AS-IS WITH BLUE/GREEN CURVES) -->
+    <!-- Visual Convergence Curve (SVG Embedded Chart - PRESERVED COLORS AS REQUESTED) -->
     <div class="chart-container">
-      <div style="font-size: 9.5pt; font-weight: bold; margin-bottom: 6px; color: #000000;">
-        Figure 1: MobileNetV2 Loss Convergence &amp; Validation Accuracy Across 20 Epochs (Cosine Annealing)
+      <div style="font-size: 9.2pt; font-weight: bold; margin-bottom: 5px; color: #000000;">
+        Figure 1: MobileNetV2 Loss Convergence &amp; Validation Accuracy Across 20 Epochs (Cosine Schedule)
       </div>
-      <svg width="680" height="150" viewBox="0 0 680 150">
+      <svg width="680" height="140" viewBox="0 0 680 140">
         <!-- Axes -->
-        <line x1="45" y1="125" x2="650" y2="125" stroke="#94a3b8" stroke-width="1.5"/>
-        <line x1="45" y1="15" x2="45" y2="125" stroke="#94a3b8" stroke-width="1.5"/>
-        <line x1="650" y1="15" x2="650" y2="125" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="45" y1="115" x2="650" y2="115" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="45" y1="12" x2="45" y2="115" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="650" y1="12" x2="650" y2="115" stroke="#94a3b8" stroke-width="1.5"/>
         <!-- Grid lines -->
-        <line x1="45" y1="42" x2="650" y2="42" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-        <line x1="45" y1="70" x2="650" y2="70" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-        <line x1="45" y1="98" x2="650" y2="98" stroke="#e2e8f0" stroke-dasharray="3,3"/>
+        <line x1="45" y1="38" x2="650" y2="38" stroke="#e2e8f0" stroke-dasharray="3,3"/>
+        <line x1="45" y1="64" x2="650" y2="64" stroke="#e2e8f0" stroke-dasharray="3,3"/>
+        <line x1="45" y1="90" x2="650" y2="90" stroke="#e2e8f0" stroke-dasharray="3,3"/>
         <!-- Loss Curve (Blue) -->
-        <path d="M 45 22 Q 120 70 200 95 T 380 114 T 650 119" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <path d="M 45 20 Q 120 65 200 88 T 380 105 T 650 110" fill="none" stroke="#2563eb" stroke-width="2.5"/>
         <!-- Accuracy Curve (Green) -->
-        <path d="M 45 105 Q 120 60 200 40 T 380 25 T 650 20" fill="none" stroke="#10b981" stroke-width="2.5"/>
+        <path d="M 45 98 Q 120 55 200 36 T 380 22 T 650 18" fill="none" stroke="#10b981" stroke-width="2.5"/>
         <!-- Labels -->
-        <text x="50" y="22" font-size="8.5" fill="#2563eb" font-weight="bold">Loss: 1.48 &rarr; 0.08</text>
-        <text x="540" y="18" font-size="8.5" fill="#10b981" font-weight="bold">Accuracy: 38.2% &rarr; 96.8%</text>
-        <text x="45" y="137" font-size="8" fill="#64748b">Epoch 1</text>
-        <text x="195" y="137" font-size="8" fill="#64748b">Epoch 5</text>
-        <text x="345" y="137" font-size="8" fill="#64748b">Epoch 10</text>
-        <text x="495" y="137" font-size="8" fill="#64748b">Epoch 15</text>
-        <text x="635" y="137" font-size="8" fill="#64748b">Epoch 20</text>
+        <text x="50" y="20" font-size="8.5" fill="#2563eb" font-weight="bold">Loss: 1.48 &rarr; 0.08</text>
+        <text x="540" y="16" font-size="8.5" fill="#10b981" font-weight="bold">Accuracy: 38.2% &rarr; 96.8%</text>
+        <text x="45" y="127" font-size="8" fill="#64748b">Epoch 1</text>
+        <text x="195" y="127" font-size="8" fill="#64748b">Epoch 5</text>
+        <text x="345" y="127" font-size="8" fill="#64748b">Epoch 10</text>
+        <text x="495" y="127" font-size="8" fill="#64748b">Epoch 15</text>
+        <text x="635" y="127" font-size="8" fill="#64748b">Epoch 20</text>
       </svg>
     </div>
 
+    <h2 class="report-heading">4. Covariate Domain Shift Diagnosis &amp; In-Situ Confusion Matrix</h2>
     <p>
       In rigorous scientific validation, recognizing distribution shift is mandatory. When evaluating the trained MobileNetV2 on field-captured photographs from Kanakapura, performance exhibited a domain divergence drop from 96.8% to 88.4%. Our team diagnosed three exact failure modes:
     </p>
@@ -446,21 +447,48 @@
       </tbody>
     </table>
 
-    <h2 class="report-heading">4. Sericultural Intervention Protocols &amp; Chemical Waiting Periods</h2>
+    <h2 class="report-heading">5. Sericultural Intervention Protocols &amp; Chemical Withholding Periods</h2>
     <p>
       Accurate diagnosis is actionable only when coupled with sericultural safety rules. Our platform implements automated risk assessment: healthy leaves receive immediate feeding clearance, while diseased foliage triggers mandatory chemical spray protocols and strict harvesting quarantine waiting periods before silkworms can safely consume the leaves:
     </p>
-    <ul>
-      <li><strong>Powdery Mildew:</strong> Spray 0.2% Wettable Sulfur (2 g/L). <strong>Mandatory 10-day quarantine</strong> prior to harvest.</li>
-      <li><strong>Leaf Rust:</strong> Spray 0.2% Chlorothalonil / Mancozeb. <strong>Mandatory 12-day quarantine</strong> before larval feeding.</li>
-      <li><strong>Leaf Spot:</strong> Spray 0.1% Carbendazim (Bavistin). <strong>Mandatory 14-day quarantine</strong> to eliminate residual systemic toxicity.</li>
-    </ul>
+
+    <!-- Transparent Agronomic Protocol Table -->
+    <table class="academic-table" style="margin: 8px 0;">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Target Disease</th>
+          <th style="width: 30%;">Recommended Fungicide Spray</th>
+          <th style="width: 22%; text-align: center;">Mandatory Withholding</th>
+          <th style="width: 23%;">Silkworm Feeding Clearance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Powdery Mildew</strong> (Phyllactinia corylea)</td>
+          <td>0.2% Wettable Sulfur (2 g/L)</td>
+          <td style="text-align: center;"><strong>10 Days</strong></td>
+          <td>Cleared after 10-day quarantine</td>
+        </tr>
+        <tr>
+          <td><strong>Leaf Rust</strong> (Cerotelium fici)</td>
+          <td>0.2% Chlorothalonil / Mancozeb</td>
+          <td style="text-align: center;"><strong>12 Days</strong></td>
+          <td>Cleared after 12-day quarantine</td>
+        </tr>
+        <tr>
+          <td><strong>Leaf Spot</strong> (Cercospora moricola)</td>
+          <td>0.1% Carbendazim (Bavistin)</td>
+          <td style="text-align: center;"><strong>14 Days</strong></td>
+          <td>Cleared after 14-day quarantine</td>
+        </tr>
+      </tbody>
+    </table>
 
   </div>
 
   <!-- PAGE 4: INDIVIDUAL CONTRIBUTIONS, CONCLUSION & REFERENCES -->
   <div class="report-page">
-    <h2 class="report-heading" style="margin-top:0;">5. Individual Member Contributions &amp; Engineering Ownership</h2>
+    <h2 class="report-heading" style="margin-top:0;">6. Individual Member Contributions &amp; Engineering Ownership</h2>
     <p>
       SilkGuard was developed through a coordinated engineering sprint where each member took end-to-end ownership of an essential biological or computational subsystem:
     </p>
@@ -469,9 +497,9 @@
     <table class="academic-table">
       <thead>
         <tr>
-          <th style="width: 20%;">Member</th>
-          <th style="width: 25%;">Assigned Engineering Role</th>
-          <th style="width: 55%;">Specific Individual Contribution &amp; Deliverables</th>
+          <th style="width: 18%;">Member</th>
+          <th style="width: 26%;">Assigned Engineering Role</th>
+          <th style="width: 56%;">Specific Individual Contribution &amp; Deliverables</th>
         </tr>
       </thead>
       <tbody>
