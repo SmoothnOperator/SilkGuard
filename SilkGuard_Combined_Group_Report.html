@@ -6,13 +6,13 @@
   <style>
     @page {
       size: A4;
-      margin: 18mm 16mm 18mm 16mm;
+      margin: 10mm 12mm 10mm 12mm;
     }
     * { box-sizing: border-box; }
     body {
       font-family: 'Times New Roman', Times, serif;
-      font-size: 10.5pt;
-      line-height: 1.48;
+      font-size: 9.8pt;
+      line-height: 1.38;
       color: #000000;
       background: #f8fafc;
       margin: 0;
@@ -173,7 +173,7 @@
     }
     .btn-print:hover { background: #059669; }
     @media print {
-      body { background: #fff; padding: 0; }
+      body { background: #fff; padding: 0; font-size: 9.2pt; line-height: 1.32; }
       .print-bar { display: none; }
       .report-page {
         box-shadow: none;
@@ -181,8 +181,19 @@
         padding: 0;
         margin: 0;
         page-break-after: always;
+        break-after: page;
       }
-      .report-page:last-child { page-break-after: avoid; }
+      .report-page:last-child { page-break-after: avoid; break-after: avoid; }
+      .cover-border { min-height: 960px; padding: 18px 16px; }
+      table.academic-table { font-size: 8pt; margin: 5px 0; }
+      table.academic-table th, table.academic-table td { padding: 2.5px 4.5px; }
+      h2.report-heading { font-size: 11pt; margin: 8px 0 4px 0; padding-bottom: 2px; }
+      p { margin: 0 0 5px 0; }
+      ul { margin: 3px 0 6px 0; }
+      li { margin-bottom: 3px; }
+      .chart-container { margin: 6px 0; padding: 4px; }
+      .citation-list { font-size: 8.2pt; }
+      .citation-item { margin-bottom: 3px; }
     }
   </style>
 </head>
@@ -283,8 +294,7 @@
     </div>
 
     <p>
-      Silkworms (Bombyx mori) are strict monophagous insects possessing an evolutionary metabolic dependence on the fresh foliage of the white mulberry tree (Morus alba L.). In sericultural engineering, the mulberry leaf acts as the irreplaceable nutritional foundation that powers larval growth, silk gland hypertrophy, and fibroin protein polymerization. Our interdisciplinary team engineered <strong>SilkGuard</strong>, an edge-native artificial intelligence platform and field diagnostic laboratory. We approached foliar disease diagnosis through an integrated biological and computer systems engineering paradigm: mapping foliar moisture and protein deterioration directly to digestive physiological collapse (flacherie) in Bombyx mori, while deploying optimized inverted-residual convolutional neural networks (MobileNetV2) capable of real-time offline inference on edge mobile processors in rural Karnataka.
-    </p>
+      Silkworms (Bombyx mori) feed exclusively on fresh white mulberry leaves (Morus alba), making leaf quality vital for their growth and high-grade silk production. When mulberry leaves suffer from fungal diseases, they quickly lose critical moisture and protein. Silkworms eating these degraded leaves develop fatal digestive infections (flacherie), leading to heavy crop losses for farmers. To solve this problem, our team developed <strong>SilkGuard</strong>, a practical edge-AI diagnostic tool. By running a lightweight deep learning model (MobileNetV2) directly on smartphones without internet, SilkGuard allows sericulture farmers in rural Karnataka to instantly scan leaves, diagnose diseases, and take timely preventive action to protect their silkworms.</p>
 
     <h2 class="report-heading">1. Biological Foundation: Mulberry Foliar Pathology and Silkworm Nutrition</h2>
     <p>
@@ -447,6 +457,11 @@
       </tbody>
     </table>
 
+      </div>
+
+  <!-- PAGE 4: TREATMENT & BENCHMARKING -->
+    <!-- PAGE 4: TREATMENT GUIDELINES -->
+  <div class="report-page">
     <h2 class="report-heading">5. Disease Treatment Guidelines and Silkworm Feeding Safety</h2>
     <p>
       A leaf diagnosis is only truly useful when it guides safe farm action. Our platform provides automated safety advice: healthy leaves receive immediate feeding clearance, while infected leaves come with specific fungicide recommendations and strict harvesting waiting periods so chemical residues do not harm the silkworms:
@@ -489,8 +504,11 @@
   <!-- PAGE 4: INDIVIDUAL CONTRIBUTIONS, CONCLUSION & REFERENCES -->
   
   <!-- PAGE 4: BENCHMARKING -->
+  </div>
+
+  <!-- PAGE 5: COMPARATIVE BENCHMARKING -->
   <div class="report-page">
-    <h2 class="report-heading" style="margin-top:0;">6. Comparative Architectural &amp; Agronomic Benchmarking: SilkGuard vs. Generic Leaf Scanners</h2>
+    <h2 class="report-heading">6. Comparative Architectural &amp; Agronomic Benchmarking: SilkGuard vs. Generic Leaf Scanners</h2>
     <p>
       While various commercial and open-source applications (such as LeafSnap, PlantNet, PictureThis, or generic online leaf scanners) offer plant identification via mobile photographs, they fundamentally fail when deployed in professional sericultural operations. Generic leaf scanners are engineered for broad botanical curiosity across thousands of non-economic angiosperms, relying on centralized cloud APIs that introduce severe transmission delays and demand continuous cellular reception. Furthermore, generic scanners operate as opaque black boxes, classifying visual symptoms without biochemical domain knowledge of mulberry (Morus alba) foliar degradation or the strict nutritional monophagy of the silkworm (Bombyx mori).
     </p>
@@ -554,6 +572,8 @@
   </div>
 
   <!-- PAGE 5: TEAM & REFERENCES -->
+    <!-- PAGE 5: COMPARATIVE BENCHMARKING -->
+    <!-- PAGE 6: TEAM CONTRIBUTIONS & REFERENCES -->
   <div class="report-page">
     <h2 class="report-heading" style="margin-top:0;">7. Individual Member Contributions &amp; Engineering Ownership</h2>
     <p>
