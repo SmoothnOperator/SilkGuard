@@ -389,9 +389,9 @@
       </svg>
     </div>
 
-    <h2 class="report-heading">4. Covariate Domain Shift Diagnosis &amp; In-Situ Confusion Matrix</h2>
+    <h2 class="report-heading">4. Field Testing, Error Diagnosis, and Confusion Matrix</h2>
     <p>
-      In rigorous scientific validation, recognizing distribution shift is mandatory. When evaluating the trained MobileNetV2 on field-captured photographs from Kanakapura, performance exhibited a domain divergence drop from 96.8% to 88.4%. Our team diagnosed three exact failure modes:
+      When evaluating our trained MobileNetV2 model on actual field-captured photographs from farms in Kanakapura, performance showed a practical variation from 96.8% under controlled lab conditions to 88.4% in the field. Our team analyzed these real-world conditions and identified three primary factors:
     </p>
     <ul>
       <li><strong>Specular Wax Cuticle Highlights:</strong> Under high morning solar irradiance (lux &gt; 65,000), sunlight reflecting off the waxy foliar cuticle caused localized pixel saturation. This washed out mycelial texture, causing 1 Powdery Mildew leaf to misclassify as Leaf Rust.</li>
@@ -588,7 +588,7 @@
         <tr>
           <td><strong>SAKSHI</strong><br><span style="font-family: monospace; font-size:8.5pt;">25BTRC0045</span></td>
           <td>Model Benchmarking &amp; Evaluation Analyst</td>
-          <td>Generated the multiclass confusion matrices; quantified the 96.8% clean vs. 88.4% field covariate shift; diagnosed failure modes (cuticle specular glare, shadow occlusion, lesion coalescence).</td>
+          <td>Generated the multiclass confusion matrices; quantified the 96.8% lab vs. 88.4% field performance variation; diagnosed failure modes (cuticle specular glare, shadow occlusion, lesion coalescence).</td>
         </tr>
         <tr>
           <td><strong>NIKHIL</strong><br><span style="font-family: monospace; font-size:8.5pt;">25BTRBT026</span></td>
