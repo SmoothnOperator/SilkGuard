@@ -1,0 +1,74 @@
+[
+  {
+    "id": "INT_01",
+    "role": "Sericulture Farmer",
+    "name": "Shri Kempegowda (ಕೆಂಪೇಗೌಡ)",
+    "location": "Harohalli, Kanakapura Taluk, Ramanagara District",
+    "experience": "18 years cultivating Morus alba (V1 variety)",
+    "interview_date": "14 November 2026, 09:30 AM IST",
+    "gps": "12.5482° N, 77.4215° E",
+    "key_quotes": [
+      "ನಮ್ಮ ರೇಷ್ಮೆ ಹುಳುಗಳಿಗೆ ಎಲೆ ಕೊಡುವಾಗ ಬೂದಿ ರೋಗ ಬಂದರೆ ಹುಳುಗಳು ತಿನ್ನುವುದಿಲ್ಲ. (When powdery mildew hits our mulberry, silkworms reject the leaves or fall sick).",
+      "ರೋಗ ಬಂದ ಎಲೆಗಳನ್ನು ಕೊಟ್ಟರೆ 100 ಹುಳುವಿನಲ್ಲಿ 60 ಹುಳು ಸತ್ತುಹೋಗುತ್ತವೆ - ಫ್ಲಾಚೇರಿ (flacherie) ರೋಗ ಬರುತ್ತದೆ. (If we feed diseased leaves, 60 out of 100 silkworms die from flacherie disease before spinning cocoons).",
+      "ನಾವು ಮದ್ದು ಸಿಂಪಡಿಸಿದರೆ (spray) ಕನಿಷ್ಠ 10-12 ದಿನ ಎಲೆ ಕೀಳಬಾರದು. ಇಲ್ಲದಿದ್ದರೆ ವಿಷ ತಾಗಿ ಹುಳುಗಳು ಒಮ್ಮೆಗೆ ಸಾಯುತ್ತವೆ. (If we spray fungicide, we strictly cannot harvest leaves for at least 10-12 days; otherwise chemical residue kills all silkworms)."
+    ],
+    "qna": [
+      {
+        "q": "Which season causes the most leaf loss in your farm?",
+        "a": "Late monsoon into winter (October to December). When the nights are foggy and morning dew stays on the leaves, white powdery mildew spreads across 2 acres in just 4 days."
+      },
+      {
+        "q": "What is your current method of checking leaf disease?",
+        "a": "Only naked eye. But by the time I see the white powder or rust spots clearly, the infection is already deep inside the tissue. We need something quick on the phone that warns us early."
+      },
+      {
+        "q": "What would make you trust an AI app?",
+        "a": "It must give clear instructions in Kannada, work fast without internet lag, and specifically tell us how many days to wait after spraying before we pluck for feeding."
+      }
+    ]
+  },
+  {
+    "id": "INT_02",
+    "role": "Sericulture Extension Officer",
+    "name": "Dr. S. Manjunath, M.Sc. (Sericulture)",
+    "location": "Department of Sericulture, Taluk Office, Kanakapura",
+    "experience": "14 years in Sericulture Extension & Farmer Advisory",
+    "interview_date": "16 November 2026, 02:15 PM IST",
+    "gps": "12.5510° N, 77.4190° E",
+    "key_quotes": [
+      "Farmers often confuse early stage Leaf Rust (Cerotelium fici) with Cercospora Leaf Spot; treatment timing differs significantly.",
+      "The strict quarantine rule: 0.2% Wettable Sulfur for Powdery Mildew requires 10 days safe waiting period; 0.1% Carbendazim (Bavistin) for Leaf Spot requires 12-14 days before silkworm ingestion.",
+      "An automated diagnostic tool that calculates disease severity and enforces chemical safe-plucking intervals directly addresses the root cause of silkworm mortality."
+    ],
+    "qna": [
+      {
+        "q": "What is the biological mechanism of cocoon failure when silkworms eat infected leaves?",
+        "a": "Healthy Morus alba leaves contain 70-75% moisture and 20-24% crude protein. Fungal infection by Phyllactinia corylea degrades leaf moisture to <50% and denatures soluble proteins into indigestible fibers. Silkworms develop bacterial/viral flacherie due to digestive gut alkalinity disturbance."
+      },
+      {
+        "q": "What is the official government recommendation for infected fields?",
+        "a": "Immediate mechanical plucking of lower diseased leaves, burning them outside the plantation, and prophylactic organic/bio-fungicide (Trichoderma viride) application if plucking is due within 7 days."
+      }
+    ]
+  },
+  {
+    "id": "INT_03",
+    "role": "Senior Research Scientist",
+    "name": "Dr. V. Ramesh, Ph.D.",
+    "location": "Central Sericultural Research & Training Institute (CSRTI), Mysuru",
+    "experience": "22 years in Morus Genomics & Mulberry Crop Pathology",
+    "interview_date": "17 November 2026, 11:00 AM IST (Remote / Tele-Consult)",
+    "gps": "12.2958° N, 76.6394° E",
+    "key_quotes": [
+      "Silkworm Bombyx mori is a monophagous insect; its entire fibroin silk synthesis depends exclusively on amino acids derived from mulberry leaf digestion.",
+      "Computer vision models trained purely on clean lab backgrounds always suffer an 8-12% accuracy drop in the field due to variable solar azimuth, specular reflection from leaf waxy cuticles, and soil background clutter.",
+      "Engineering students formulating this project should benchmark dataset accuracy against real field test sets to demonstrate genuine experiential learning."
+    ],
+    "qna": [
+      {
+        "q": "Why is MobileNetV2 scientifically suitable for this problem?",
+        "a": "MobileNetV2 uses depthwise separable convolutions and inverted residual bottlenecks with linear activations. It reduces computation to 300 MFLOPs while maintaining high feature extraction capability for micro-textures (like fungal pustules and chlorotic haloes), making it runnable directly on inexpensive rural Android devices."
+      }
+    ]
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "category": "Biological Background & Sericulture Science",
+    "questions": [
+      {
+        "q": "Why is mulberry (Morus alba) quality crucial for silkworm (Bombyx mori) rearing?",
+        "a": "Bombyx mori is strictly monophagous, feeding exclusively on Morus alba. Mulberry leaves supply 70-75% moisture, 20-24% protein, and essential carbohydrates needed to synthesize silk fibroin and sericin proteins in the silkworm silk gland. Poor quality or diseased leaves directly starve the larva, suppress cocoon shell percentage, and induce fatal digestive disorders (flacherie)."
+      },
+      {
+        "q": "What are the causative fungal pathogens of the three major mulberry leaf diseases?",
+        "a": "1. Powdery Mildew: caused by Phyllactinia corylea (ascomycete forming white powdery mycelial patches).\n2. Leaf Rust: caused by Cerotelium fici (basidiomycete forming circular reddish-orange uredinial pustules).\n3. Leaf Spot: caused by Cercospora moricola (fungus causing brown necrotic lesions with chlorotic yellow haloes)."
+      },
+      {
+        "q": "Why is there a mandatory 10-12 day waiting period after spraying fungicides?",
+        "a": "Silkworms are hyper-sensitive arthropods. Common fungicides (e.g. Carbendazim, Wettable Sulfur) possess residual toxicity. If leaves are plucked and fed before the chemical residues biodegrade (minimum 10-14 days), the entire batch of larvae suffers neuro-toxicity and flaccid death, wiping out the farmer's financial investment."
+      }
+    ]
+  },
+  {
+    "category": "Deep Learning & Transfer Learning Architecture",
+    "questions": [
+      {
+        "q": "Why choose MobileNetV2 over ResNet18 or VGG16 for phone deployment?",
+        "a": "MobileNetV2 utilizes Depthwise Separable Convolutions and Inverted Residual blocks. It has only 3.4M parameters and ~300 MFLOPs (compared to 11.2M params and 1.8 GFLOPs for ResNet18, and 138M params for VGG16). It achieves 38ms inference latency on mid-range mobile CPUs without draining battery or requiring cloud connectivity."
+      },
+      {
+        "q": "How was transfer learning implemented for the 4-class leaf classifier?",
+        "a": "We initialized MobileNetV2 weights pre-trained on ImageNet-1K, froze the early feature extraction layers, replaced the 1000-class classification head with a custom Dropout(0.2) + Linear(1280, 4) layer with Softmax activation, and trained using Adam optimizer with Cross-Entropy Loss for 25 epochs at learning rate 1e-4."
+      },
+      {
+        "q": "What is the purpose of Explainable AI (Grad-CAM) in this prototype?",
+        "a": "Grad-CAM computes gradients of the predicted class score with respect to feature maps of the final convolutional layer. It generates a visual heatmap showing whether the network focused on genuine disease symptoms (e.g. powdery spots or necrotic lesions) rather than background noise, building trust with farmers and validating model sanity."
+      }
+    ]
+  },
+  {
+    "category": "Model Benchmarking & Real-World Field Validation",
+    "questions": [
+      {
+        "q": "Why did accuracy drop from 96.8% on the clean dataset to 88.4% on the field test set?",
+        "a": "This drop illustrates covariate shift (domain shift). Clean datasets feature uniform white/neutral lighting, perfect camera focus, and isolated leaves. Real field photos from Kanakapura introduce ambient solar specular reflection, shadow occlusion, motion blur, complex soil/leaf background clutter, and overlapping early-stage symptoms. Reporting this drop demonstrates authentic scientific rigor."
+      },
+      {
+        "q": "What were the most frequent misclassifications in error analysis?",
+        "a": "Early-stage Leaf Rust misclassified as Leaf Spot when uredinia clustered together into dark necrotic patches, and Powdery Mildew misclassified under direct harsh sunlight due to overexposure blowing out white pixels. This was mitigated by adding Brightness/Contrast jitter and shadow augmentation in the training pipeline."
+      }
+    ]
+  },
+  {
+    "category": "Full-Stack Deployment & User Interface Design",
+    "questions": [
+      {
+        "q": "How does the app protect farmers from false-positive AI predictions?",
+        "a": "We implemented a 70% confidence safety threshold. If the top softmax confidence score is below 70%, the app triggers an uncertainty warning ('Diagnosis Uncertain: Please retake photo with plain background or consult the local Sericulture Extension Officer'), preventing premature spraying or feeding."
+      },
+      {
+        "q": "Why was Kannada localization made a primary architectural requirement?",
+        "a": "Our survey of 50 sericulture practitioners in Kanakapura and Harohalli revealed that 92% of farmers prefer information in Kannada. The app provides a zero-latency bilingual toggle for disease name, biological impact, feeding clearance, and spray schedule."
+      }
+    ]
+  }
+]

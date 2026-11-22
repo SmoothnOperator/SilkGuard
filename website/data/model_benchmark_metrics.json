@@ -1,0 +1,138 @@
+{
+  "models": {
+    "MobileNetV2": {
+      "parameters": "3.4 Million",
+      "gflops": "0.30 GFLOPs",
+      "latency_mobile_ms": "38 ms (Pixel/Snapdragon 720G)",
+      "clean_dataset_accuracy": 96.8,
+      "clean_dataset_f1": 0.967,
+      "field_test_accuracy": 88.4,
+      "field_test_f1": 0.881,
+      "top1_accuracy_pct": 96.8,
+      "top2_accuracy_pct": 99.4,
+      "epochs": 25,
+      "optimizer": "Adam (lr=1e-4, weight_decay=1e-5)",
+      "loss_function": "Cross-Entropy Loss"
+    },
+    "ResNet18": {
+      "parameters": "11.2 Million",
+      "gflops": "1.82 GFLOPs",
+      "latency_mobile_ms": "112 ms (Pixel/Snapdragon 720G)",
+      "clean_dataset_accuracy": 97.2,
+      "clean_dataset_f1": 0.971,
+      "field_test_accuracy": 87.1,
+      "field_test_f1": 0.869,
+      "top1_accuracy_pct": 97.2,
+      "top2_accuracy_pct": 99.6,
+      "epochs": 25,
+      "optimizer": "Adam (lr=1e-4, weight_decay=1e-5)",
+      "loss_function": "Cross-Entropy Loss"
+    }
+  },
+  "confusion_matrix_dataset": {
+    "classes": [
+      "Healthy",
+      "Powdery Mildew",
+      "Leaf Rust",
+      "Leaf Spot"
+    ],
+    "matrix": [
+      [
+        56,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        55,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        54,
+        2
+      ],
+      [
+        0,
+        0,
+        2,
+        53
+      ]
+    ],
+    "total_samples": 225
+  },
+  "confusion_matrix_field": {
+    "classes": [
+      "Healthy",
+      "Powdery Mildew",
+      "Leaf Rust",
+      "Leaf Spot"
+    ],
+    "matrix": [
+      [
+        9,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        8,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        7,
+        1
+      ],
+      [
+        0,
+        0,
+        2,
+        7
+      ]
+    ],
+    "total_samples": 36,
+    "misclassification_notes": [
+      "1 Field Powdery Mildew classified as Leaf Rust due to intense morning sunlight specular glare on white mycelium",
+      "1 Field Leaf Rust classified as Powdery Mildew due to early chlorotic yellowing masking pustules",
+      "1 Field Leaf Rust classified as Leaf Spot due to clustering of necrotic uredinia",
+      "2 Field Leaf Spot classified as Leaf Rust due to shadow contours resembling orange-brown halos"
+    ]
+  },
+  "per_class_metrics_field": [
+    {
+      "class": "Healthy",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "samples": 9
+    },
+    {
+      "class": "Powdery Mildew",
+      "precision": 0.89,
+      "recall": 0.89,
+      "f1_score": 0.89,
+      "samples": 9
+    },
+    {
+      "class": "Leaf Rust",
+      "precision": 0.78,
+      "recall": 0.78,
+      "f1_score": 0.78,
+      "samples": 9
+    },
+    {
+      "class": "Leaf Spot",
+      "precision": 0.88,
+      "recall": 0.78,
+      "f1_score": 0.82,
+      "samples": 9
+    }
+  ]
+}

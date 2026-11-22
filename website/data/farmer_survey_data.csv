@@ -1,0 +1,51 @@
+response_id,category,village_taluk,sericulture_experience_years,farm_size_acres,has_smartphone_internet,current_leaf_check_method,observed_diseases,peak_outbreak_season,silkworm_crop_loss_pct,fungicide_spray_waiting_days,hours_to_get_expert_help,would_use_phone_scanner_app_1_to_5,preferred_language,trust_factor
+RESP_001,Farmer/Sericulturist,Kaggalipura,7,1.6,Yes - Weak Network,Visual Inspection (Naked Eye),Leaf Rust & Powdery Mildew,Late Monsoon (Sep-Nov),40,7,24,4,English,Approved by Sericulture Dept
+RESP_002,Farmer/Sericulturist,Harohalli,6,2.5,Yes - Weak Network,Visual Inspection (Naked Eye),All Three,Late Monsoon (Sep-Nov),40,8,12,5,English,Verified Waiting Days Guide
+RESP_003,Farmer/Sericulturist,Harohalli,28,5.1,Yes - Weak Network,Consult Extension Officer,Leaf Spot,Winter (Dec-Jan),45,10,72,5,Kannada (ಕನ್ನಡ),Free to use
+RESP_004,Farmer/Sericulturist,Harohalli,15,5.3,Yes - Weak Network,Ask Elder Neighbor,Powdery Mildew & Leaf Spot,Late Monsoon (Sep-Nov),60,14,24,5,Kannada (ಕನ್ನಡ),Verified Waiting Days Guide
+RESP_005,Farmer/Sericulturist,Kaggalipura,23,5.5,Yes - Weak Network,Visual Inspection (Naked Eye),Powdery Mildew & Leaf Spot,Late Monsoon (Sep-Nov),40,10,72,5,Kannada (ಕನ್ನಡ),Approved by Sericulture Dept
+RESP_006,Farmer/Sericulturist,Sathanur,12,3.5,Yes - Weak Network,Visual Inspection (Naked Eye),Leaf Spot,Winter (Dec-Jan),45,8,72,5,Kannada (ಕನ್ನಡ),Offline Capability
+RESP_007,Farmer/Sericulturist,Uyyamballi,27,2.6,Yes - Weak Network,Consult Extension Officer,Leaf Spot,Late Monsoon (Sep-Nov),40,14,48,5,Kannada with Voice Output,Approved by Sericulture Dept
+RESP_008,Farmer/Sericulturist,Kanakapura Rural,30,1.6,Yes - Weak Network,Consult Extension Officer,Leaf Spot,Late Monsoon (Sep-Nov),45,14,72,5,English,Free to use
+RESP_009,Farmer/Sericulturist,Kaggalipura,18,2.1,Yes - 4G/5G,Visual Inspection (Naked Eye),All Three,Late Monsoon (Sep-Nov),50,8,12,4,English,Verified Waiting Days Guide
+RESP_010,Farmer/Sericulturist,Kanakapura Rural,8,3.8,Yes - 4G/5G,Visual Inspection (Naked Eye),Powdery Mildew & Leaf Spot,Late Monsoon (Sep-Nov),40,10,12,4,Kannada (ಕನ್ನಡ),Free to use
+RESP_011,Farmer/Sericulturist,Sathanur,23,6.0,Yes - Weak Network,Ask Elder Neighbor,All Three,Late Monsoon (Sep-Nov),40,8,24,5,Kannada with Voice Output,Verified Waiting Days Guide
+RESP_012,Farmer/Sericulturist,Harohalli,13,3.5,Yes - Weak Network,Visual Inspection (Naked Eye),Leaf Spot,Late Monsoon (Sep-Nov),45,14,24,5,Kannada with Voice Output,Offline Capability
+RESP_013,Farmer/Sericulturist,Kanakapura Rural,15,4.9,Yes - Weak Network,Visual Inspection (Naked Eye),All Three,Winter (Dec-Jan),60,7,24,4,Kannada with Voice Output,Offline Capability
+RESP_014,Farmer/Sericulturist,Harohalli,11,5.5,Yes - 4G/5G,Visual Inspection (Naked Eye),Powdery Mildew,Late Monsoon (Sep-Nov),25,10,48,5,English,Offline Capability
+RESP_015,Farmer/Sericulturist,Maralawadi,20,5.4,Yes - Weak Network,Visual Inspection (Naked Eye),All Three,Late Monsoon (Sep-Nov),40,10,72,5,Kannada with Voice Output,Free to use
+RESP_016,Farmer/Sericulturist,Uyyamballi,18,2.0,Yes - 4G/5G,Visual Inspection (Naked Eye),Leaf Spot,Late Monsoon (Sep-Nov),25,14,48,4,Kannada (ಕನ್ನಡ),Approved by Sericulture Dept
+RESP_017,Farmer/Sericulturist,Harohalli,26,4.3,Yes - 4G/5G,Visual Inspection (Naked Eye),Powdery Mildew & Leaf Spot,Winter (Dec-Jan),35,14,48,4,English,Offline Capability
+RESP_018,Farmer/Sericulturist,Uyyamballi,8,4.8,Yes - Weak Network,Consult Extension Officer,Leaf Rust & Powdery Mildew,Winter (Dec-Jan),60,10,24,5,English,Verified Waiting Days Guide
+RESP_019,Farmer/Sericulturist,Sathanur,17,3.6,Yes - Weak Network,Visual Inspection (Naked Eye),Powdery Mildew & Leaf Spot,Late Monsoon (Sep-Nov),60,8,72,5,Kannada (ಕನ್ನಡ),Offline Capability
+RESP_020,Farmer/Sericulturist,Kanakapura Rural,21,3.5,Yes - Weak Network,Visual Inspection (Naked Eye),Leaf Spot,Winter (Dec-Jan),45,7,12,4,Kannada (ಕನ್ನಡ),Approved by Sericulture Dept
+RESP_021,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,4,Kannada (ಕನ್ನಡ),Free to use
+RESP_022,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,Kannada (ಕನ್ನಡ),Free to use
+RESP_023,Community/Student,Bengaluru Urban / Rural,3,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,English,Free to use
+RESP_024,Community/Student,Bengaluru Urban / Rural,2,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada with Voice Output,Approved by Sericulture Dept
+RESP_025,Community/Student,Bengaluru Urban / Rural,3,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada (ಕನ್ನಡ),Approved by Sericulture Dept
+RESP_026,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,Kannada (ಕನ್ನಡ),Approved by Sericulture Dept
+RESP_027,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada with Voice Output,Offline Capability
+RESP_028,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,English,Offline Capability
+RESP_029,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,Kannada (ಕನ್ನಡ),Approved by Sericulture Dept
+RESP_030,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,4,Kannada with Voice Output,Offline Capability
+RESP_031,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada with Voice Output,Offline Capability
+RESP_032,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada with Voice Output,Approved by Sericulture Dept
+RESP_033,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,Kannada (ಕನ್ನಡ),Offline Capability
+RESP_034,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada (ಕನ್ನಡ),Verified Waiting Days Guide
+RESP_035,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,English,Verified Waiting Days Guide
+RESP_036,Community/Student,Bengaluru Urban / Rural,2,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada (ಕನ್ನಡ),Free to use
+RESP_037,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada (ಕನ್ನಡ),Approved by Sericulture Dept
+RESP_038,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada with Voice Output,Offline Capability
+RESP_039,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,Kannada (ಕನ್ನಡ),Verified Waiting Days Guide
+RESP_040,Community/Student,Bengaluru Urban / Rural,1,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,Kannada (ಕನ್ನಡ),Offline Capability
+RESP_041,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,Kannada (ಕನ್ನಡ),Verified Waiting Days Guide
+RESP_042,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,4,Kannada with Voice Output,Offline Capability
+RESP_043,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,English,Offline Capability
+RESP_044,Community/Student,Bengaluru Urban / Rural,3,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,4,Kannada (ಕನ್ನಡ),Approved by Sericulture Dept
+RESP_045,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,Kannada (ಕನ್ನಡ),Verified Waiting Days Guide
+RESP_046,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada (ಕನ್ನಡ),Approved by Sericulture Dept
+RESP_047,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,Kannada (ಕನ್ನಡ),Approved by Sericulture Dept
+RESP_048,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Late Monsoon (Sep-Nov),0,10,24,5,English,Approved by Sericulture Dept
+RESP_049,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,English,Approved by Sericulture Dept
+RESP_050,Community/Student,Bengaluru Urban / Rural,0,0,Yes - 4G/5G,Visual Inspection,None,Winter (Dec-Jan),0,10,24,5,Kannada (ಕನ್ನಡ),Verified Waiting Days Guide
