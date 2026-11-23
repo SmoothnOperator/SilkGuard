@@ -1029,12 +1029,32 @@ function sendToAugmenter(leafId) {
 }
 
 // 5. Prototype 1: AI Leaf Diagnostic Scanner Module
-function renderScannerThumbnails() {
+let currentScannerPresetFilter = 'all';
+
+function filterScannerPresets(filterClass, btn) {
+  currentScannerPresetFilter = filterClass;
+  document.querySelectorAll('.scanner-filter-pills .pipe-filter-btn').forEach(b => {
+    b.classList.toggle('active', b === btn || b.getAttribute('data-filter') === filterClass);
+  });
+  renderScannerThumbnails(filterClass);
+  const filtered = filterClass === 'all' 
+    ? appState.dataset 
+    : appState.dataset.filter(l => l.class === filterClass);
+  if (filtered.length > 0) {
+    loadLeafForScan(filtered[0], true);
+  }
+}
+
+function renderScannerThumbnails(filterClass = currentScannerPresetFilter) {
   const container = document.getElementById('scanner-thumbs');
   if (!container) return;
   container.innerHTML = '';
   
-  appState.dataset.forEach(leaf => {
+  const leaves = filterClass === 'all' 
+    ? appState.dataset 
+    : appState.dataset.filter(l => l.class === filterClass);
+  
+  leaves.forEach((leaf, idx) => {
     const img = document.createElement('img');
     img.src = leaf.filepath;
     img.alt = leaf.class_display_en;
@@ -1043,7 +1063,15 @@ function renderScannerThumbnails() {
     img.loading = 'eager';
     img.className = 'sample-thumb';
     img.title = `${leaf.class_display_en} (${leaf.domain})`;
-    img.onclick = () => loadLeafForScan(leaf, true);
+    img.dataset.leafId = leaf.id;
+    if (appState.selectedLeaf && (appState.selectedLeaf.id === leaf.id || appState.selectedLeaf.filename === leaf.filename)) {
+      img.classList.add('active');
+    }
+    img.onclick = () => {
+      container.querySelectorAll('.sample-thumb').forEach(t => t.classList.remove('active'));
+      img.classList.add('active');
+      loadLeafForScan(leaf, true);
+    };
     container.appendChild(img);
   });
 }
@@ -1091,7 +1119,7 @@ function loadLeafForScan(leaf, autoRun = false) {
   appState.selectedLeaf = leaf;
   
   document.querySelectorAll('.sample-thumb').forEach(t => {
-    t.classList.toggle('active', t.src.includes(leaf.filename));
+    t.classList.toggle('active', t.src && (t.src.includes(leaf.filename) || t.src === leaf.filepath));
   });
   
   const previewImg = document.getElementById('scanner-leaf-preview');
@@ -1876,10 +1904,11 @@ function handleUserUploadedFile(file) {
       ctx.drawImage(img, sx, sy, size, size, 0, 0, 600, 600);
       
       const analysis = classifyLeafPixels(ctx, 600, 600);
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
       const userLeaf = {
         id: 'custom_upload_' + Date.now(),
         filename: file.name,
-        filepath: e.target.result,
+        filepath: dataUrl,
         class: analysis.predictedClass,
         class_display_en: analysis.meta.en + ' (Uploaded File)',
         class_display_kn: analysis.meta.kn + ' (ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಚಿತ್ರ)',

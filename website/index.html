@@ -311,7 +311,16 @@
 
               <!-- Quick Sample Selector Strip with Real Images -->
               <div class="sample-pick-strip">
-                <span data-i18n="sample_strip_title">Select from genuine real-life mulberry leaf photographs:</span>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:6px;">
+                  <span style="margin-bottom:0;" data-i18n="sample_strip_title">Select from genuine real-life mulberry leaf photographs:</span>
+                  <div class="scanner-filter-pills" style="display:flex; gap:4px;">
+                    <button class="pipe-filter-btn active" data-filter="all" onclick="filterScannerPresets('all', this)" style="padding:2px 8px; font-size:0.72rem;">All</button>
+                    <button class="pipe-filter-btn" data-filter="healthy" onclick="filterScannerPresets('healthy', this)" style="padding:2px 8px; font-size:0.72rem;">Healthy</button>
+                    <button class="pipe-filter-btn" data-filter="powdery_mildew" onclick="filterScannerPresets('powdery_mildew', this)" style="padding:2px 8px; font-size:0.72rem;">Mildew</button>
+                    <button class="pipe-filter-btn" data-filter="leaf_rust" onclick="filterScannerPresets('leaf_rust', this)" style="padding:2px 8px; font-size:0.72rem;">Rust</button>
+                    <button class="pipe-filter-btn" data-filter="leaf_spot" onclick="filterScannerPresets('leaf_spot', this)" style="padding:2px 8px; font-size:0.72rem;">Spot</button>
+                  </div>
+                </div>
                 <div class="sample-thumbnail-row" id="scanner-thumbs"></div>
               </div>
 
@@ -1272,6 +1281,6 @@
     </div>
   </div>
 
-  <script src="js/app.js?v=9431399"></script>
+  <script src="js/app.js?v=20261123b"></script>
 </body>
 </html>
