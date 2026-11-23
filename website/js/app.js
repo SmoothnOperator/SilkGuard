@@ -208,8 +208,8 @@ const I18N = {
     nav_training: "Task 3: DL Training",
     nav_benchmarks: "Task 4: Benchmarking",
     footer_course: "Subject:",
-    footer_sem: "3rd Sem B.E. Experiential Learning",
-    top_subject_tag: "B.E. SEM 3 • BIO FOR ENGINEERS",
+    footer_sem: "3rd Sem B.Tech Experiential Learning",
+    top_subject_tag: "B.TECH SEM 3 • BIO FOR ENGINEERING (25BSBE01)",
     title_scanner: "Task 1: AI Leaf Diagnostic Scanner (MobileNetV2)",
     title_gallery: "Mulberry Leaf Dataset (Real-Life Photographs)",
     title_pipeline: "Task 2: Dataset Preprocessing & Augmentation Pipeline",
@@ -375,7 +375,7 @@ const I18N = {
     
     // Reports & Downloads Section
     reports_card_title: "Project Reports & Academic Documents",
-    reports_card_subtitle: "Download complete 3rd Sem B.E. submission reports, data manifests, and inspection documents in English & Kannada.",
+    reports_card_subtitle: "Download complete 3rd Sem B.Tech CSE submission reports, data manifests, and inspection documents in English & Kannada.",
     rep_en_title: "Engineering & Bio Report (English)",
     rep_en_desc: "Comprehensive project report covering Morus alba pathology, Bombyx mori monophagy, MobileNetV2 architecture, 70% safety gate, and 24-specimen evaluation.",
     btn_dl_en_report: "Download English Report (.md)",
@@ -401,8 +401,8 @@ btn_export_cert: "Download Inspection Certificate (EN/KN)"
     nav_training: "ಹಂತ 3: ಡಿಎಲ್ ತರಬೇತಿ",
     nav_benchmarks: "ಹಂತ 4: ಮಾದರಿ ಮೌಲ್ಯಮಾಪನ",
     footer_course: "ವಿಷಯ:",
-    footer_sem: "3ನೇ ಸೆಮಿಸ್ಟರ್ ಬಿ.ಇ. ಪ್ರಾಯೋಗಿಕ ಕಲಿಕೆ",
-    top_subject_tag: "ಬಿ.ಇ. 3ನೇ ಸೆಮಿಸ್ಟರ್ • ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಜೀವಶಾಸ್ತ್ರ",
+    footer_sem: "3ನೇ ಸೆಮಿಸ್ಟರ್ ಬಿ.ಟೆಕ್ ಪ್ರಾಯೋಗಿಕ ಕಲಿಕೆ",
+    top_subject_tag: "ಬಿ.ಟೆಕ್ 3ನೇ ಸೆಮಿಸ್ಟರ್ • ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಜೀವಶಾಸ್ತ್ರ (25BSBE01)",
     title_scanner: "ಹಂತ 1: ಮೊಬೈಲ್‌ನೆಟ್‌ವಿ2 ಎಐ ಎಲೆ ರೋಗ ತಪಾಸಕ",
     title_gallery: "ಹಿಪ್ಪುನೇರಳೆ ಎಲೆ ಡೇಟಾಸೆಟ್ (ನೈಜ ಛಾಯಾಚಿತ್ರಗಳು)",
     title_pipeline: "ಹಂತ 2: ಡೇಟಾ ಸಂಸ್ಕರಣೆ ಮತ್ತು ಆಗ್ಮೆಂಟೇಶನ್ ಪೈಪ್‌ಲೈನ್",
@@ -899,6 +899,14 @@ function setLanguage(lang) {
   // 5. Update Dark Mode text
   if (typeof setDarkMode === 'function') setDarkMode(document.body.classList.contains('dark-theme'));
 
+  // 6. Maintain Loupe button active label across language toggles
+  if (appState.loupeActive) {
+    const loupeBtn = document.getElementById('btn-loupe-toggle');
+    if (loupeBtn) {
+      loupeBtn.innerHTML = (lang === 'kn') ? '🔍 ಭೂತಗನ್ನಡಿ: ಸಕ್ರಿಯ' : '🔍 Loupe Lens: ON';
+    }
+  }
+
   // 6. Refresh Task 2 Scroll List and Specimen Banner
   if (typeof renderPipelineDatasetScroll === 'function') renderPipelineDatasetScroll();
   if (typeof loadLeafForPipelineAug === 'function' && appState.selectedLeaf) loadLeafForPipelineAug(appState.selectedLeaf);
@@ -1105,6 +1113,17 @@ function loadLeafForScan(leaf, autoRun = false) {
     previewImg.src = leaf.filepath;
     previewArea.style.display = 'flex';
     if (dropPrompt) dropPrompt.style.display = 'none';
+
+    // Refresh loupe lens if active
+    if (appState.loupeActive) {
+      setTimeout(() => {
+        const stage = document.getElementById('scanner-img-stage') || document.querySelector('.scanner-frame');
+        if (stage && typeof updateScannerLoupe === 'function') {
+          const sRect = stage.getBoundingClientRect();
+          updateScannerLoupe(sRect.left + sRect.width / 2, sRect.top + sRect.height / 2);
+        }
+      }, 60);
+    }
   }
 
   // Update idle specimen display
@@ -3282,7 +3301,7 @@ function renderLiveReportDocument(lang = currentReportLang) {
   const now = new Date().toLocaleDateString(isKn ? 'kn-IN' : 'en-IN', {
     year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
   });
-  const docId = `SG-VTU-2026-${leaf.id.replace('.jpg', '').toUpperCase()}`;
+  const docId = `SG-JU-2026-${leaf.id.replace('.jpg', '').toUpperCase()}`;
   const leafImgSrc = leaf.filepath || (leaf.filename ? `assets/images/leaves/${leaf.filename}` : `assets/images/leaves/${(leaf.id && leaf.id.endsWith('.jpg')) ? leaf.id : `${leaf.id || 'leaf_spot_lab_01'}.jpg`}`);
   const leafMoistureVal = leaf.moisture_pct || leaf.moisture || 74.5;
   const leafProteinVal = leaf.protein_pct || leaf.crude_protein || 23.2;
@@ -3295,12 +3314,15 @@ function renderLiveReportDocument(lang = currentReportLang) {
 
     container.innerHTML = `
       <div class="academic-header">
-        <div class="univ-title">ವಿಶ್ವೇಶ್ವರಯ್ಯ ತಾಂತ್ರಿಕ ವಿಶ್ವವಿದ್ಯಾಲಯ (VTU), ಬೆಳಗಾವಿ</div>
+        <div style="text-align:center; margin-bottom:8px;">
+          <img src="assets/images/jain_logo.png" alt="Jain University FET" style="max-height:48px; width:auto; display:inline-block;">
+        </div>
+        <div class="univ-title">ಜೈನ್ (ಪರಿಗಣಿತ ವಿಶ್ವವಿದ್ಯಾಲಯ) • ಇಂಜಿನಿಯರಿಂಗ್ ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ನಿಕಾಯ (FET)</div>
         <div style="font-size:0.80rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:3px;">
           ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗ
         </div>
         <div style="font-size:0.73rem; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px;">
-          ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಜೀವಶಾಸ್ತ್ರ (ಕೋರ್ಸ್ ಕೋಡ್: 21BE32 • 3ನೇ ಸೆಮಿಸ್ಟರ್ ಬಿ.ಇ.) • ಪ್ರಾಯೋಗಿಕ ಮೌಲ್ಯಮಾಪನ 2026–2027
+          ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಜೀವಶಾಸ್ತ್ರ (ಕೋರ್ಸ್ ಕೋಡ್: 25BSBE01 • 3ನೇ ಸೆಮಿಸ್ಟರ್ ಬಿ.ಟೆಕ್ ಸಿಎಸ್‌ಇ) • ಪ್ರಾಯೋಗಿಕ ಮೌಲ್ಯಮಾಪನ 2026–2027
         </div>
         <h1 class="proj-main-title">ಸಿಲ್ಕ್‌ಗಾರ್ಡ್: ಹಿಪ್ಪುನೇರಳೆ ಎಲೆ ರೋಗ ತಪಾಸಣೆ &amp; <span style="white-space:nowrap;">ರೇಷ್ಮೆಹುಳು ಸಂರಕ್ಷಣಾ ವರದಿ</span></h1>
         <div style="font-size:0.78rem; color:#059669; font-weight:700; font-family:var(--font-mono); margin-top:4px;">
@@ -3310,7 +3332,7 @@ function renderLiveReportDocument(lang = currentReportLang) {
           <span>ದಾಖಲೆ ಸಂಖ್ಯೆ: <strong>${docId}</strong></span>
           <span>ಮಾದರಿ ID: <strong>${leaf.id}</strong></span>
           <span>ದಿನಾಂಕ: <strong>${now}</strong></span>
-          <span>ತಂಡ: <strong>ಸಿಲ್ಕ್‌ಗಾರ್ಡ್ ರಿಸರ್ಚ್ ಗ್ರೂಪ್ (ಬ್ಯಾಚ್ B-04)</strong></span>
+          <span>ತಂಡ: <strong>ಸಿಲ್ಕ್‌ಗಾರ್ಡ್ ಸಂಶೋಧನಾ ತಂಡ (ಗುಂಪು 5)</strong></span>
         </div>
       </div>
 
@@ -3414,12 +3436,15 @@ function renderLiveReportDocument(lang = currentReportLang) {
 
     container.innerHTML = `
       <div class="academic-header">
-        <div class="univ-title">VISVESVARAYA TECHNOLOGICAL UNIVERSITY (VTU), BELAGAVI</div>
+        <div style="text-align:center; margin-bottom:8px;">
+          <img src="assets/images/jain_logo.png" alt="Jain University FET" style="max-height:48px; width:auto; display:inline-block;">
+        </div>
+        <div class="univ-title">JAIN (DEEMED-TO-BE UNIVERSITY) • FACULTY OF ENGINEERING &amp; TECHNOLOGY</div>
         <div style="font-size:0.80rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:3px;">
           DEPARTMENT OF COMPUTER SCIENCE &amp; ENGINEERING
         </div>
         <div style="font-size:0.73rem; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px;">
-          BIOLOGY FOR ENGINEERS (COURSE CODE: 21BE32 • 3RD SEMESTER B.E.) • EXPERIENTIAL LEARNING 2026–2027
+          BIOLOGY FOR ENGINEERING (COURSE CODE: 25BSBE01 • 3RD SEMESTER B.TECH CSE) • EXPERIENTIAL LEARNING 2026–2027
         </div>
         <h1 class="proj-main-title">SilkGuard: Edge-AI Mulberry Pathology &amp; <span style="white-space:nowrap;"><em>Bombyx mori</em></span> Safety Report</h1>
         <div style="font-size:0.78rem; color:#059669; font-weight:700; font-family:var(--font-mono); margin-top:4px;">
@@ -3429,7 +3454,7 @@ function renderLiveReportDocument(lang = currentReportLang) {
           <span>Document Ref: <strong>${docId}</strong></span>
           <span>Specimen ID: <strong>${leaf.id}</strong></span>
           <span>Date of Evaluation: <strong>${now}</strong></span>
-          <span>Investigator: <strong>Team SilkGuard (Section B-04)</strong></span>
+          <span>Investigator: <strong>Team SilkGuard (Group 5)</strong></span>
         </div>
       </div>
 
@@ -3637,7 +3662,10 @@ function copyReportToClipboard() {
 function downloadReportDraft(lang = 'en') {
   if (lang === 'kn') {
     const kannadaReport = `# ಸಿಲ್ಕ್‌ಗಾರ್ಡ್ (SilkGuard): ರೇಷ್ಮೆ ಹುಳುಗಳ ರಕ್ಷಣೆಗಾಗಿ ಹಿಪ್ಪುನೇರಳೆ ಎಲೆ ರೋಗ ಪತ್ತೆಹಚ್ಚುವ ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆ ವ್ಯವಸ್ಥೆ
-**ವಿಷಯ:** ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಜೀವಶಾಸ್ತ್ರ (Biology for Engineers - 3ನೇ ಸೆಮಿಸ್ಟರ್)  
+**ಸಂಸ್ಥೆ:** ಜೈನ್ (ಪರಿಗಣಿತ ವಿಶ್ವವಿದ್ಯಾಲಯ), ಇಂಜಿನಿಯರಿಂಗ್ ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ನಿಕಾಯ (FET)  
+**ವಿಭಾಗ:** ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗ  
+**ವಿಷಯ:** ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಜೀವಶಾಸ್ತ್ರ (ಕೋರ್ಸ್ ಕೋಡ್: 25BSBE01 • 3ನೇ ಸೆಮಿಸ್ಟರ್ ಬಿ.ಟೆಕ್ ಸಿಎಸ್‌ಇ)  
+**ಮಾರ್ಗದರ್ಶಕರು:** ಪ್ರೊ. ಶಮಲಾ ಜಿ, ಸಹಾಯಕ ಪ್ರಾಧ್ಯಾಪಕರು  
 **ಶೈಕ್ಷಣಿಕ ವರ್ಷ:** 2026-2027  
 **ಮುಖ್ಯ ಬೆಳೆ:** ಹಿಪ್ಪುನೇರಳೆ ಎಲೆ (Morus alba L. cv. V1)  
 **ಗುರಿ ಕೀಟ:** ರೇಷ್ಮೆ ಹುಳು (Bombyx mori)  
@@ -3680,8 +3708,11 @@ function downloadReportDraft(lang = 'en') {
     downloadFile(dataStr, "SilkGuard_ಹಿಪ್ಪುನೇರಳೆ_ಎಲೆ_ಸಂಶೋಧನಾ_ವರದಿ_KN.md");
   } else {
     const englishReport = `# SilkGuard: Smart Mulberry Leaf Scanner for Bombyx mori Protection
-**Course:** Biology for Engineers (3rd Semester B.E.)  
-**Academic Year:** 2026-2027  
+**Institution:** Jain (Deemed-to-be University), Faculty of Engineering and Technology (FET)  
+**Department:** Department of Computer Science & Engineering  
+**Course:** Biology for Engineering (Course Code: 25BSBE01 • 3rd Semester B.Tech CSE)  
+**Faculty Mentor:** Ms. Shamala G, Assistant Professor  
+**Academic Year:** Experiential Learning 2026–2027  
 **Target Foliage:** Mulberry (*Morus alba* L. cv. V1)  
 **Target Organism:** Domesticated Silkworm (*Bombyx mori*)  
 
@@ -3770,7 +3801,7 @@ function exportCurrentLeafCertificate() {
 
 ---
 **ಅಧಿಕೃತ ಮುದ್ರೆ:** ಸಿಲ್ಕ್‌ಗಾರ್ಡ್ ಎಐ ಎಂಜಿನಿಯರಿಂಗ್ ಪ್ರೊಟೊಟೈಪ್ ಲ್ಯಾಬ್  
-*ವಿಷಯ: ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಜೀವಶಾಸ್ತ್ರ (Biology for Engineers) - 3ನೇ ಸೆಮಿಸ್ಟರ್ ಬಿ.ಇ.*
+*ವಿಷಯ: ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಜೀವಶಾಸ್ತ್ರ (25BSBE01) - 3ನೇ ಸೆಮಿಸ್ಟರ್ ಬಿ.ಟೆಕ್ ಸಿಎಸ್‌ಇ • ಜೈನ್ ವಿಶ್ವವಿದ್ಯಾಲಯ FET*
 `;
   } else {
     content = `# SILKGUARD MULBERRY LEAF INSPECTION & SAFETY CERTIFICATE
@@ -3804,7 +3835,7 @@ function exportCurrentLeafCertificate() {
 
 ---
 **Authorized By:** SilkGuard Edge AI Diagnostic Protocol  
-*Subject: Biology for Engineers (3rd Sem B.E. Experiential Learning Workbench)*
+*Subject: Biology for Engineering (Course Code: 25BSBE01 • 3rd Sem B.Tech CSE • Jain University FET)*
 `;
   }
 
@@ -3838,77 +3869,202 @@ function hashStr(str) {
 function toggleMagnifierLoupe() {
   appState.loupeActive = !appState.loupeActive;
   const btn = document.getElementById('btn-loupe-toggle');
+  const stage = document.getElementById('scanner-img-stage') || document.querySelector('.scanner-frame');
+  const img = document.getElementById('scanner-leaf-preview');
   const lens = document.getElementById('scanner-magnifier-lens');
-  if (btn) btn.classList.toggle('active', appState.loupeActive);
-  if (lens && !appState.loupeActive) {
-    lens.style.display = 'none';
+
+  if (!appState.loupeZoom) appState.loupeZoom = 2.5;
+
+  const isKn = appState.lang === 'kn';
+
+  if (btn) {
+    btn.classList.toggle('active', appState.loupeActive);
+    if (appState.loupeActive) {
+      btn.innerHTML = isKn ? '🔍 ಭೂತಗನ್ನಡಿ: ಸಕ್ರಿಯ' : '🔍 Loupe Lens: ON';
+      btn.title = isKn ? 'ಭೂತಗನ್ನಡಿ ಸಕ್ರಿಯವಾಗಿದೆ (ಸ್ಕ್ರೋಲ್ ಮಾಡಿ ಜೂಮ್ ಬದಲಾಯಿಸಿ)' : 'Inspection Loupe Active (Scroll to zoom, hover to inspect)';
+    } else {
+      btn.innerHTML = isKn ? '🔍 ಭೂತಗನ್ನಡಿ ಲೆನ್ಸ್' : '🔍 Loupe Lens';
+      btn.title = isKn ? 'ಎಲೆ ರೋಗ ತಪಾಸಣಾ ಲೆನ್ಸ್' : 'Toggle inspection zoom loupe';
+    }
+  }
+
+  if (stage) {
+    stage.classList.toggle('loupe-active', appState.loupeActive);
+  }
+
+  if (appState.loupeActive) {
+    // If leaf preview is not visible yet, ensure selected leaf is loaded
+    const previewArea = document.getElementById('scanner-preview-container');
+    if (!previewArea || previewArea.style.display === 'none') {
+      if (appState.selectedLeaf) {
+        loadLeafForScan(appState.selectedLeaf);
+      }
+    }
+
+    if (stage && img && lens) {
+      lens.style.display = 'block';
+      // Center loupe immediately on the leaf for instant visual feedback
+      const rect = stage.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      updateScannerLoupe(centerX, centerY);
+    }
+  } else {
+    if (lens) {
+      lens.style.display = 'none';
+    }
   }
 }
 
-function setupMagnifierLens() {
-  const frame = document.querySelector('.scanner-frame');
+function updateScannerLoupe(clientX, clientY) {
+  if (!appState.loupeActive) return;
+  const stage = document.getElementById('scanner-img-stage') || document.querySelector('.scanner-frame');
   const img = document.getElementById('scanner-leaf-preview');
   const lens = document.getElementById('scanner-magnifier-lens');
   const coords = document.getElementById('magnifier-coords');
   const badge = document.getElementById('magnifier-badge');
-  if (!frame || !img || !lens) return;
+  if (!stage || !img || !lens) return;
 
-  function updateLoupe(clientX, clientY) {
-    if (!appState.loupeActive) return;
-    const rect = frame.getBoundingClientRect();
-    if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
-      lens.style.display = 'none';
-      return;
-    }
+  const stageRect = stage.getBoundingClientRect();
+  const imgRect = img.getBoundingClientRect();
+  if (imgRect.width === 0 || imgRect.height === 0) return;
 
-    lens.style.display = 'block';
-    const x = clientX - rect.left;
-    const y = clientY - rect.top;
-
-    // Lens radius 65px (130px circle)
-    const lensRadius = 65;
-    lens.style.left = `${x - lensRadius}px`;
-    lens.style.top = `${y - lensRadius}px`;
-
-    const zoom = 2.6;
-    const bgX = (x / rect.width) * 100;
-    const bgY = (y / rect.height) * 100;
-
-    lens.style.backgroundImage = `url('${img.src}')`;
-    lens.style.backgroundSize = `${rect.width * zoom}px ${rect.height * zoom}px`;
-    lens.style.backgroundPosition = `${bgX}% ${bgY}%`;
-
-    if (coords) {
-      coords.textContent = `X: ${Math.round(x)} | Y: ${Math.round(y)}`;
-    }
-
-    if (badge && appState.selectedLeaf) {
-      const cls = appState.selectedLeaf.class;
-      const isKn = appState.lang === 'kn';
-      if (cls === 'powdery_mildew') {
-        badge.textContent = isKn ? '🔬 ಶಿಲೀಂಧ್ರ ಜಾಲ (Mycelium)' : '🔬 Fungal Mycelium Spot';
-      } else if (cls === 'leaf_rust') {
-        badge.textContent = isKn ? '🔬 ಯುರೆಡಿನಿಯಲ್ ಗುಳ್ಳೆ' : '🔬 Uredinial Pustule';
-      } else if (cls === 'leaf_spot') {
-        badge.textContent = isKn ? '🔬 ನೆಕ್ರೋಟಿಕ್ ಚುಕ್ಕೆ (Shot-hole)' : '🔬 Necrotic Shot-hole';
-      } else {
-        badge.textContent = isKn ? '🌿 ಹೊಳಪಿನ ಹೊರಚರ್ಮ (Cuticle)' : '🌿 Glossy V1 Cuticle';
-      }
-    }
+  // If pointer is far outside stage, hide lens
+  if (clientX < stageRect.left - 40 || clientX > stageRect.right + 40 ||
+      clientY < stageRect.top - 40 || clientY > stageRect.bottom + 40) {
+    lens.style.display = 'none';
+    return;
   }
 
-  frame.addEventListener('mousemove', e => updateLoupe(e.clientX, e.clientY));
-  frame.addEventListener('touchmove', e => {
-    if (e.touches && e.touches[0]) {
-      updateLoupe(e.touches[0].clientX, e.touches[0].clientY);
+  lens.style.display = 'block';
+
+  // Pointer position relative to stage
+  const xInStage = clientX - stageRect.left;
+  const yInStage = clientY - stageRect.top;
+
+  const lensWidth = lens.offsetWidth || 140;
+  const lensHeight = lens.offsetHeight || 140;
+  const lensRadiusX = lensWidth / 2;
+  const lensRadiusY = lensHeight / 2;
+
+  // Center the lens on cursor, smoothly clamped within stage bounds
+  const clampedX = Math.max(lensRadiusX, Math.min(stageRect.width - lensRadiusX, xInStage));
+  const clampedY = Math.max(lensRadiusY, Math.min(stageRect.height - lensRadiusY, yInStage));
+
+  lens.style.left = `${clampedX - lensRadiusX}px`;
+  lens.style.top = `${clampedY - lensRadiusY}px`;
+
+  // Magnification zoom factor (default 2.5×, adjustable via wheel 1.5×-5.0×)
+  const zoom = appState.loupeZoom || 2.5;
+
+  // Pointer position relative to rendered leaf image
+  const imgX = clientX - imgRect.left;
+  const imgY = clientY - imgRect.top;
+
+  // Scaled background dimensions
+  const bgW = imgRect.width * zoom;
+  const bgH = imgRect.height * zoom;
+
+  // Background position so that the exact point (imgX, imgY) is at lens center
+  const bgPosX = lensRadiusX - (imgX * zoom);
+  const bgPosY = lensRadiusY - (imgY * zoom);
+
+  lens.style.backgroundImage = `url("${img.src}")`;
+  lens.style.backgroundRepeat = 'no-repeat';
+  lens.style.backgroundSize = `${bgW}px ${bgH}px`;
+  lens.style.backgroundPosition = `${bgPosX}px ${bgPosY}px`;
+
+  // Update HUD coordinates and zoom factor
+  if (coords) {
+    const pctX = Math.round((Math.max(0, Math.min(imgRect.width, imgX)) / (imgRect.width || 1)) * 100);
+    const pctY = Math.round((Math.max(0, Math.min(imgRect.height, imgY)) / (imgRect.height || 1)) * 100);
+    coords.textContent = `X:${pctX}% Y:${pctY}% · ${zoom.toFixed(1)}×`;
+  }
+
+  // Update diagnostic lesion badge and color ring based on specimen pathology
+  if (badge && appState.selectedLeaf) {
+    const cls = appState.selectedLeaf.class;
+    const isKn = appState.lang === 'kn';
+    if (cls === 'powdery_mildew') {
+      badge.textContent = isKn ? `🔬 ${zoom.toFixed(1)}× ಶಿಲೀಂಧ್ರ ಜಾಲ (Mycelium)` : `🔬 ${zoom.toFixed(1)}× Fungal Mycelium Filament`;
+      lens.style.borderColor = '#38bdf8';
+      lens.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.5), inset 0 0 14px rgba(56, 189, 248, 0.4), 0 0 0 2px #38bdf8';
+    } else if (cls === 'leaf_rust') {
+      badge.textContent = isKn ? `🔬 ${zoom.toFixed(1)}× ಯುರೆಡಿನಿಯಲ್ ಗುಳ್ಳೆ` : `🔬 ${zoom.toFixed(1)}× Uredinial Rust Pustule`;
+      lens.style.borderColor = '#f59e0b';
+      lens.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.5), inset 0 0 14px rgba(245, 158, 11, 0.4), 0 0 0 2px #f59e0b';
+    } else if (cls === 'leaf_spot') {
+      badge.textContent = isKn ? `🔬 ${zoom.toFixed(1)}× ನೆಕ್ರೋಟಿಕ್ ಚುಕ್ಕೆ` : `🔬 ${zoom.toFixed(1)}× Necrotic Shot-hole Margin`;
+      lens.style.borderColor = '#ef4444';
+      lens.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.5), inset 0 0 14px rgba(239, 68, 68, 0.4), 0 0 0 2px #ef4444';
+    } else {
+      badge.textContent = isKn ? `🌿 ${zoom.toFixed(1)}× ಹೊರಚರ್ಮ & ನಾಳಗಳು` : `🌿 ${zoom.toFixed(1)}× Glossy V1 Cuticle & Veins`;
+      lens.style.borderColor = '#10b981';
+      lens.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.5), inset 0 0 14px rgba(16, 185, 129, 0.4), 0 0 0 2px #10b981';
+    }
+  }
+}
+
+function setupMagnifierLens() {
+  const stage = document.getElementById('scanner-img-stage') || document.querySelector('.scanner-frame');
+  const img = document.getElementById('scanner-leaf-preview');
+  const lens = document.getElementById('scanner-magnifier-lens');
+  if (!stage || !img || !lens) return;
+
+  // Mouse movement
+  stage.addEventListener('mousemove', e => {
+    if (appState.loupeActive) {
+      updateScannerLoupe(e.clientX, e.clientY);
+    }
+  });
+
+  // Mouse enter
+  stage.addEventListener('mouseenter', e => {
+    if (appState.loupeActive) {
+      updateScannerLoupe(e.clientX, e.clientY);
+    }
+  });
+
+  // Touch drag for mobile / tablet
+  stage.addEventListener('touchstart', e => {
+    if (appState.loupeActive && e.touches && e.touches[0]) {
+      updateScannerLoupe(e.touches[0].clientX, e.touches[0].clientY);
     }
   }, { passive: true });
 
-  frame.addEventListener('mouseleave', () => {
-    if (lens) lens.style.display = 'none';
+  stage.addEventListener('touchmove', e => {
+    if (appState.loupeActive && e.touches && e.touches[0]) {
+      updateScannerLoupe(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+
+  // Click on leaf centers the loupe or activates it
+  stage.addEventListener('click', e => {
+    if (appState.loupeActive) {
+      updateScannerLoupe(e.clientX, e.clientY);
+    }
   });
-  frame.addEventListener('touchend', () => {
-    if (lens) lens.style.display = 'none';
+
+  // Mouse wheel adjusts zoom level dynamically
+  stage.addEventListener('wheel', e => {
+    if (!appState.loupeActive) return;
+    e.preventDefault();
+    const delta = e.deltaY < 0 ? 0.25 : -0.25;
+    appState.loupeZoom = Math.max(1.5, Math.min(5.0, (appState.loupeZoom || 2.5) + delta));
+    updateScannerLoupe(e.clientX, e.clientY);
+  }, { passive: false });
+
+  // Mouse leave
+  stage.addEventListener('mouseleave', () => {
+    if (lens && appState.loupeActive) {
+      lens.style.display = 'none';
+    }
+  });
+
+  stage.addEventListener('touchend', () => {
+    if (lens && appState.loupeActive) {
+      lens.style.display = 'none';
+    }
   });
 }
 

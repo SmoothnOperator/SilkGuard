@@ -1726,6 +1726,34 @@ body {
 /* ======================================================== */
 /* 1. INTERACTIVE LEAF INSPECTION LOUPE & MAGNIFIER         */
 /* ======================================================== */
+#btn-loupe-toggle {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+#btn-loupe-toggle.active {
+  background: #059669 !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.5) !important;
+}
+
+body.dark-theme #btn-loupe-toggle.active {
+  background: #10b981 !important;
+  border-color: #10b981 !important;
+  color: #0f172a !important;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.6) !important;
+}
+
+.scanner-img-stage.loupe-active {
+  cursor: crosshair !important;
+}
+
+.scanner-img-stage.loupe-active img {
+  cursor: crosshair !important;
+}
+
 .magnifier-lens {
   position: absolute;
   width: 140px;
@@ -1738,6 +1766,7 @@ body {
   z-index: 25;
   background-repeat: no-repeat;
   background-color: #0f172a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .magnifier-crosshair {

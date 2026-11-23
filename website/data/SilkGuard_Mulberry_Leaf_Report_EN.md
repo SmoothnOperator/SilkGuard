@@ -1,6 +1,8 @@
 # SILKGUARD: AI-DRIVEN MORUS ALBA HEALTH ASSESSMENT & SILKWORM MORTALITY PREVENTION
-## Course: Biology for Engineers | 3rd Semester B.E. Experiential Learning Project
-**Institution:** VTU / Autonomous Engineering Curriculum  
+## Course: Biology for Engineering (Course Code: 25BSBE01 • 3rd Semester B.Tech CSE)
+**Institution:** Jain (Deemed-to-be University), Faculty of Engineering and Technology (FET)  
+**Department:** Department of Computer Science & Engineering  
+**Faculty Mentor:** Ms. Shamala G, Assistant Professor  
 **Focus Crop:** Mulberry (*Morus alba* L.) | **Host Organism:** Silkworm (*Bombyx mori* L.)  
 **Project Mode:** Lab & Prototype-Based Engineering Platform (Zero Fieldwork Overhead)
 
