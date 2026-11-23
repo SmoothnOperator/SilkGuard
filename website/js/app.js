@@ -1897,13 +1897,13 @@ function handleUserUploadedFile(file) {
       };
       
       // Add custom uploaded leaf into active dataset so it reflects in gallery and thumbnail strip
-      if (!appState.leafDataset.some(l => l.id === userLeaf.id)) {
-        appState.leafDataset.unshift(userLeaf);
-        if (typeof renderGalleryGrid === 'function') renderGalleryGrid();
-        if (typeof renderScannerThumbs === 'function') renderScannerThumbs();
+      if (!appState.dataset.some(l => l.id === userLeaf.id)) {
+        appState.dataset.unshift(userLeaf);
+        if (typeof renderLeafGallery === 'function') renderLeafGallery();
+        if (typeof renderScannerThumbnails === 'function') renderScannerThumbnails();
       }
 
-      loadLeafForScan(userLeaf);
+      loadLeafForScan(userLeaf, true);  // autoRun=true so diagnosis fires immediately
       if (typeof switchTab === 'function') switchTab('scanner');
     };
     img.src = e.target.result;
